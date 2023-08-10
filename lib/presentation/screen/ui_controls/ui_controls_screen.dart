@@ -11,21 +11,21 @@ class UiControlsScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("UI Controls"),
       ),
-      body: const _uiControlsView(),
+      body: const _UiControlsView(),
     );
   }
 }
 
-class _uiControlsView extends StatefulWidget {
-  const _uiControlsView();
+class _UiControlsView extends StatefulWidget {
+  const _UiControlsView();
 
   @override
-  State<_uiControlsView> createState() => _uiControlsViewState();
+  State<_UiControlsView> createState() => _UiControlsViewState();
 }
 
 enum Transportation { car, plane, boat, submarine }
 
-class _uiControlsViewState extends State<_uiControlsView> {
+class _UiControlsViewState extends State<_UiControlsView> {
   bool isDeveloper = true;
   Transportation selectedTransportation = Transportation.car;
   bool wantsBreakfast = false;
