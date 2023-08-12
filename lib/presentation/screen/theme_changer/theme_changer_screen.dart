@@ -12,7 +12,8 @@ class ThemeChangerScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final isLightness = ref.watch( isLightmodeProvider );
+    // final isLightness = ref.watch( isLightmodeProvider );
+    final isLightness = ref.watch( themeNotifierProvider ).isLightmode;
     return Scaffold(
 
       appBar: AppBar(
@@ -20,7 +21,8 @@ class ThemeChangerScreen extends ConsumerWidget {
         actions: [
           IconButton(
             onPressed: (){
-              ref.read( isLightmodeProvider.notifier ).update((state) => !state);
+              // ref.read( isLightmodeProvider.notifier ).update((state) => !state);
+              ref.read( themeNotifierProvider.notifier ).toggleLightmode();
             }, 
             icon: Icon( isLightness ? Icons.light_mode : Icons.dark_mode,
               size: 30,
@@ -29,7 +31,7 @@ class ThemeChangerScreen extends ConsumerWidget {
           )
         ],
       ),
-      body: _ThemeChangerView()
+      body: const _ThemeChangerView()
     );
   }
 }
@@ -40,7 +42,8 @@ class _ThemeChangerView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final List<Color> colors = ref.watch(colorListProvider);
-    final int globalColorIndex = ref.watch( selectColorProvider); 
+    // final int globalColorIndex = ref.watch( selectColorProvider);
+    final int globalColorIndex = ref.watch( themeNotifierProvider ).selectedColor; 
 
     return ListView.builder(
       itemCount: colors.length,
@@ -56,7 +59,8 @@ class _ThemeChangerView extends ConsumerWidget {
           value: index, 
           groupValue: globalColorIndex, 
           onChanged: (value){
-            ref.read( selectColorProvider.notifier ).state = value ?? 0;
+            // ref.read( selectColorProvider.notifier ).state = value ?? 0;
+            ref.read( themeNotifierProvider.notifier ).changeColorIndex(value!);
           }
         );
     },);
