@@ -1,6 +1,6 @@
 
 
-import 'package:go_router/go_router.dart';
+import 'package:go_router/go_router.dart'; 
 import 'package:wigets_app/presentation/screens.dart'; 
 
 final appRouter = GoRouter(
@@ -60,6 +60,18 @@ final appRouter = GoRouter(
       name: InfiniteScrollScreen.name,
       builder: (context, state) => const InfiniteScrollScreen(),
     ),
+
+    GoRoute(
+      name: CounterScreen.name,
+      path: '/counter',
+      builder: (context, state) => CounterScreen(),
+    ),
+
+    GoRoute(
+      name: ThemeChangerScreen.name,
+      path: '/theme-changer',
+      builder: (context, state) => ThemeChangerScreen(),
+    )
 
   ]
 );
