@@ -1,3 +1,3 @@
 # wigets_app
 
-A new Flutter project.
+Mobile application that allows you to observe the diverse variety of widgets offered by the Flutter framework
